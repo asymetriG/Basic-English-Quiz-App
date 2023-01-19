@@ -12,7 +12,7 @@ int icinde_mi(int eleman,int dizi[]) {
     return 0;
 }
 
-int ata(int *a_i,int *b_i,int *c_i,int *d_i,int nums[],int *num_count) {
+int ata(int *a_i,int *b_i,int *c_i,int *d_i,int nums[],int *num_count) { 
     int a = *a_i;
     int b = *b_i;
     int c = *c_i;
@@ -124,9 +124,6 @@ int ata(int *a_i,int *b_i,int *c_i,int *d_i,int nums[],int *num_count) {
     *b_i = b;
     *c_i = c;
     *d_i = d;
-
-
-
 }
 
 
@@ -142,26 +139,27 @@ int main()
     char c[20];
     char d[20];
 
-    char correct_ans;
-    char user_ans;
+    char correct_ans; //'a' 'b' 'c' 'd'
+    char user_ans; //'a' 'b' 'c' 'd'
+
     char quest[20];
 
     int soru_index;
-    int ihtimal;
 
+    int ihtimal;
     int sans;
 
-    int a_i = -1;
-    int b_i = -1;
-    int c_i = -1;
-    int d_i = -1;
+    int a_i = -1; //basarmak -> 1
+    int b_i = -1; //yaklasmak -> 9 
+    int c_i = -1; //suclamak -> 0
+    int d_i = -1; //ayarlamak ->
 
     int num_count = 88;
 
     int nums[4];
 
     while (1) {
-        ihtimal = rand()%2;
+        ihtimal = rand()%2; //0 veya 1
 
         for(int i = 0;i<4;i++) {
             nums[i] = -1;
@@ -174,12 +172,12 @@ int main()
 
 
         if(ihtimal==1) {
-            soru_index = rand()%num_count;
+            soru_index = rand()%num_count; //0 ve 87 arasında değer döner
             strcpy(quest,turkce[soru_index]);
 
             printf("%s ne demektir?\n",quest);
 
-            sans = rand()%4;
+            sans = rand()%4; //0 1 2 3
 
             if(sans==0) {
 
@@ -189,7 +187,7 @@ int main()
 
                 strcpy(a,ing[soru_index]);
 
-                nums[0] = soru_index;
+                nums[0] = soru_index; //45 -1 -1 -1
 
                 ata(&a_i,&b_i,&c_i,&d_i,nums,&num_count);
 
